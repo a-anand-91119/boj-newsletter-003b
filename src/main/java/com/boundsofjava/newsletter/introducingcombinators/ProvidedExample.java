@@ -11,17 +11,17 @@ class ProvidedExample {
         System.out.println("------------------------------------");
 
         Function<BigDecimal, String> addTaxDecorated =
-                Provided.decorate(this::isTaxable, this::addTax);
+                Provided.decorate(this::isTaxable, this::addTax, this::fallback);
 
         String result1 = addTaxDecorated.apply(new BigDecimal("10"));
 
         System.out.println("Done - Result is " + result1);
-        System.out.println();
+        System.out.println("------------------------------------");
 
         String result2 = addTaxDecorated.apply(new BigDecimal("5"));
 
         System.out.println("Done - Result is " + result2);
-        System.out.println();
+        System.out.println("------------------------------------");
     }
 
     private boolean isTaxable(BigDecimal argument) {
@@ -33,5 +33,10 @@ class ProvidedExample {
     private String addTax(BigDecimal amount) {
         System.out.println("Adding heavy taxes to poor citizen...");
         return "$" + amount.multiply(new BigDecimal("1.22"));
+    }
+
+    private String fallback(BigDecimal amount) {
+        System.out.println("Fallback: tax exemption");
+        return "$" + amount;
     }
 }
