@@ -7,5 +7,7 @@ public class BojNewsletter003b {
         // Run Provided combinator demo
         new ProvidedExample().demo();
 
+        // Run Precondition combinator demo
+        new PreconditionExample().demo();
     }
 }
