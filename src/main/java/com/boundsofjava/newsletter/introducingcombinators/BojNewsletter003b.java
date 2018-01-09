@@ -9,5 +9,8 @@ public class BojNewsletter003b {
 
         // Run Precondition combinator demo
         new PreconditionExample().demo();
+
+        // Run Postcondition combinator demo
+        new PostconditionExample().demo();
     }
 }
