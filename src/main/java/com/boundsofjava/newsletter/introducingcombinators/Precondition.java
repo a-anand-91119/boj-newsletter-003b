@@ -14,9 +14,7 @@ public interface Precondition<T, R, X extends RuntimeException>
 
 	static <T, R, X extends RuntimeException> Precondition<T, R, X> create() {
 		return condition -> function -> error ->
-				Provided.decorate(condition, function, argument -> {
-					throw error.apply(argument);
-				});
+				Provided.decorate(condition, function, Functions.throwing(error));
 	}
 
 	static <T, R, X extends RuntimeException> Function<T, R> decorate(

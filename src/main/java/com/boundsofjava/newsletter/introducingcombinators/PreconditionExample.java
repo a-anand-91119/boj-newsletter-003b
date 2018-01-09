@@ -42,6 +42,6 @@ class PreconditionExample {
 
     private InvalidAmountException invalidAmount(BigDecimal amount) {
         System.out.println("INVALID AMOUNT: amount <= 0");
-        return new InvalidAmountException("Amount to be taxed must be > 0 and is " + amount);
+        return new InvalidAmountException("Amount to be taxed must be > 0 but was " + amount);
     }
 }
