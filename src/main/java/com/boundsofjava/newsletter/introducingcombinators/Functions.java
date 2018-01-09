@@ -8,6 +8,8 @@ public final class Functions {
     }
 
     public static <T, R> Function<T, R> throwing(Function<? super T, ? extends RuntimeException> error) {
-        return argument -> { throw error.apply(argument); };
+        return argument -> {
+            throw error.apply(argument);
+        };
     }
 }

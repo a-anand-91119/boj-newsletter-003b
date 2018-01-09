@@ -10,8 +10,10 @@ class PreconditionExample {
         System.out.println("Starting PRECONDITION combinator demo...");
         System.out.println("----------------------------------------");
 
-        Function<BigDecimal, String> addTaxDecorated =
-                Precondition.decorate(this::isGreaterThanZero, this::addTax, this::invalidAmount);
+        Function<BigDecimal, String> addTaxDecorated = Precondition.decorate(
+                this::isGreaterThanZero,
+                this::addTax,
+                NonPositiveAmountException::new);
 
         String result1 = addTaxDecorated.apply(new BigDecimal("10"));
 
@@ -20,11 +22,11 @@ class PreconditionExample {
 
         try {
             String result2 = addTaxDecorated.apply(new BigDecimal("-5"));
-
             System.out.println("Done - Result is " + result2);
-        } catch (InvalidAmountException e) {
 
-            System.out.println("Exception catched: " + e.getMessage());
+        } catch (NonPositiveAmountException e) {
+
+            System.out.println("Exception: " + e.getMessage());
         }
         System.out.println("----------------------------------------");
     }
@@ -40,8 +42,4 @@ class PreconditionExample {
         return "$" + amount.multiply(new BigDecimal("1.22"));
     }
 
-    private InvalidAmountException invalidAmount(BigDecimal amount) {
-        System.out.println("INVALID AMOUNT: amount <= 0");
-        return new InvalidAmountException("Amount to be taxed must be > 0 but was " + amount);
-    }
 }

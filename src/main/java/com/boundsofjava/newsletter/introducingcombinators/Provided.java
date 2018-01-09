@@ -14,7 +14,7 @@ public interface Provided<T, R>
 
     static <T, R> Provided<T, R> create() {
         return condition -> function -> fallback -> argument ->
-            condition.test(argument) ? function.apply(argument) : fallback.apply(argument);
+                condition.test(argument) ? function.apply(argument) : fallback.apply(argument);
     }
 
     static <T, R> Function<T, R> decorate(
