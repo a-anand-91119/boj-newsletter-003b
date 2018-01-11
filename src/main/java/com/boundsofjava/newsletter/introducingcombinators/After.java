@@ -12,11 +12,12 @@ public interface After<T, R>
 // @formatter:on
 
     static <T, R> After<T, R> create() {
-        return function -> after -> argument -> {
-            R result = function.apply(argument);
-            after.accept(argument, result);
-            return result;
-        };
+        return function -> after ->
+                arg -> {
+                    R result = function.apply(arg);
+                    after.accept(arg, result);
+                    return result;
+                };
     }
 
     static <T, R> Function<T, R> decorate(

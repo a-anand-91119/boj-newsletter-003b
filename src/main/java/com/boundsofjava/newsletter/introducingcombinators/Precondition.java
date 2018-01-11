@@ -13,8 +13,12 @@ public interface Precondition<T, R, X extends RuntimeException>
 // @formatter:on
 
     static <T, R, X extends RuntimeException> Precondition<T, R, X> create() {
-        return condition -> function -> error ->
-                Provided.decorate(condition, function, Functions.throwing(error));
+        return condition -> function -> error -> Provided.decorate(
+                condition,
+                function,
+                arg -> {
+                    throw error.apply(arg);
+                });
     }
 
     static <T, R, X extends RuntimeException> Function<T, R> decorate(

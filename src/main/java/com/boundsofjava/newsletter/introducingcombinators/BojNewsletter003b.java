@@ -11,6 +11,6 @@ public class BojNewsletter003b {
         new PreconditionExample().demo();
 
         // Run Postcondition combinator demo
-        new PostconditionExample().demo();
+        // new PostconditionExample().demo();
     }
 }

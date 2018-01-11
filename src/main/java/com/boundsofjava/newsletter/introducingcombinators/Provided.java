@@ -13,8 +13,8 @@ public interface Provided<T, R>
 // @formatter:on
 
     static <T, R> Provided<T, R> create() {
-        return condition -> function -> fallback -> argument ->
-                condition.test(argument) ? function.apply(argument) : fallback.apply(argument);
+        return condition -> function -> fallback ->
+                arg -> (condition.test(arg) ? function : fallback).apply(arg);
     }
 
     static <T, R> Function<T, R> decorate(
