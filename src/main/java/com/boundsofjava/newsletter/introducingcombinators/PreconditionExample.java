@@ -41,5 +41,4 @@ class PreconditionExample {
         System.out.println("Adding heavy taxes to poor citizen...");
         return "$" + amount.multiply(new BigDecimal("1.22"));
     }
-
 }

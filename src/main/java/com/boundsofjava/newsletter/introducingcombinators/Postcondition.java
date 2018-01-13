@@ -16,9 +16,9 @@ public interface Postcondition<T, R, X extends RuntimeException>
     static <T, R, X extends RuntimeException> Postcondition<T, R, X> create() {
         return function -> condition -> error -> After.decorate(
                 function,
-                (arg, res) -> {
-                    if (!condition.test(arg, res)) {
-                        throw error.apply(arg, res);
+                (argument, result) -> {
+                    if (!condition.test(argument, result)) {
+                        throw error.apply(argument, result);
                     }
                 });
     }
