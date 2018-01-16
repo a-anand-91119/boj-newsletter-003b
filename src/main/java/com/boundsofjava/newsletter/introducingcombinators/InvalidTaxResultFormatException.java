@@ -2,14 +2,14 @@ package com.boundsofjava.newsletter.introducingcombinators;
 
 import java.math.BigDecimal;
 
-public class NonPositiveAmountException
+public class InvalidTaxResultFormatException
         extends RuntimeException {
 
-    private NonPositiveAmountException(String message) {
+    private InvalidTaxResultFormatException(String message) {
         super(message);
     }
 
-    public NonPositiveAmountException(BigDecimal amount) {
+    public InvalidTaxResultFormatException(BigDecimal amount, String formatted) {
         this("Amount to be taxed must be > 0 but was " + amount);
     }
 }

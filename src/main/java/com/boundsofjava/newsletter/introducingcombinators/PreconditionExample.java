@@ -13,7 +13,7 @@ class PreconditionExample {
         Function<BigDecimal, String> addTaxDecorated = Precondition.decorate(
                 this::isGreaterThanZero,
                 this::addTax,
-                NonPositiveAmountException::new);
+                NonPositiveAmountTaxException::new);
 
         String result1 = addTaxDecorated.apply(new BigDecimal("10"));
 
@@ -24,7 +24,7 @@ class PreconditionExample {
             String result2 = addTaxDecorated.apply(new BigDecimal("-5"));
             System.out.println("Done - Result is " + result2);
 
-        } catch (NonPositiveAmountException e) {
+        } catch (NonPositiveAmountTaxException e) {
 
             System.out.println("Exception: " + e.getMessage());
         }
