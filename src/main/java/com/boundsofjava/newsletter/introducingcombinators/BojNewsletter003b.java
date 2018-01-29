@@ -12,8 +12,5 @@ public class BojNewsletter003b {
 
         // Run Postcondition combinator demo
         new PostconditionExample().demo();
-
-        // Run mixing combinators demo
-        new MixingCombinatorsExample().demo();
     }
 }
