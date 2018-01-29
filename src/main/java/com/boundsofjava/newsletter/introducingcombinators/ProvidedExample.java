@@ -13,7 +13,7 @@ class ProvidedExample {
         Function<BigDecimal, String> addTaxDecorated =
                 Provided.decorate(this::isTaxable, this::addTax, this::fallback);
 
-        String result1 = addTaxDecorated.apply(new BigDecimal("10"));
+        String result1 = addTaxDecorated.apply(new BigDecimal("100"));
 
         System.out.println("Done - Result is " + result1);
         System.out.println("------------------------------------");
