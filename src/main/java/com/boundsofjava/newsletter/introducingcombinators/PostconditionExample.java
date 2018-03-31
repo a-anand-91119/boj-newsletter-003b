@@ -48,7 +48,8 @@ class PostconditionExample {
 
     private boolean checkResultStartsWith$(BigDecimal argument, String result) {
         boolean condition = result.startsWith("$");
-        System.out.println("POSTCONDITION: Argument is " + argument + ", result is " + result + ", condition is " + condition);
+        System.out.println("POSTCONDITION: Argument is " + argument + ", result is "
+                + result + ", condition is " + condition);
         return condition;
     }
 }

@@ -10,6 +10,7 @@ public class InvalidTaxResultFormatException
     }
 
     public InvalidTaxResultFormatException(BigDecimal amount, String formatted) {
-        this("Result of adding tax to amount " + amount + " has incorrect format: " + formatted);
+        this("Result of adding tax to amount " + amount +
+                " has incorrect format: " + formatted);
     }
 }
